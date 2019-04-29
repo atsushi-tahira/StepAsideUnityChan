@@ -4,8 +4,15 @@ using UnityEngine;
 
 public class CameraOut : MonoBehaviour {
 
-	void OnBecameInvisible()
+	private GameObject target;
+
+	void Start (){
+		target = GameObject.Find("unitychan");
+	}
+	void Update()
 	{
-		Destroy(this.gameObject);
+		float targetPos = target.transform.position.z;
+		if (this.gameObject.transform.position.z < targetPos -8)
+			Destroy(this.gameObject);
 	}
 }
